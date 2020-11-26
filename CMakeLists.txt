@@ -17,6 +17,8 @@ set( PACKAGE_PRODUCTION_FILES
 	libB1.cpp
 )
 
+set(dvpLibC_direct dvpLibC_2_0_0)
+
 ############################################## Add Package #################################
 cpfAddCppPackage( 
 	TYPE					LIB
@@ -26,8 +28,9 @@ cpfAddCppPackage(
 	PACKAGE_NAMESPACE		dvpLibB1
 	PUBLIC_HEADER			${PACKAGE_PUBLIC_HEADER}
 	PRODUCTION_FILES		${PACKAGE_PRODUCTION_FILES}
-	LINKED_LIBRARIES		dvpLibC
+	LINKED_LIBRARIES		${dvpLibC_direct}
 )
 
-cpfGetInCodeVersion(inCodeVersion ${PROJECT_VERSION})
-target_compile_definitions(${PROJECT_NAME} PRIVATE CPF_IN_CODE_VERSION=${inCodeVersion})
+cpfSetupInCodeVersionMechanism()
+
+target_compile_definitions(${PROJECT_NAME} PRIVATE dvpLibC_direct=${dvpLibC_direct})
