@@ -28,3 +28,6 @@ cpfAddCppPackage(
 	PRODUCTION_FILES		${PACKAGE_PRODUCTION_FILES}
 	LINKED_LIBRARIES		dvpLibC_2_0_0
 )
+
+cpfGetInCodeVersion(inCodeVersion ${PROJECT_VERSION})
+target_compile_definitions(${PROJECT_NAME} PRIVATE CPF_IN_CODE_VERSION=${inCodeVersion})
