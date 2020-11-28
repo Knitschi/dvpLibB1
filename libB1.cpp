@@ -1,44 +1,47 @@
-#include VERSIONED_PATH(dvpLibB1_self, libB1.h)
+
+#define dvpLibB1Ver dvpLibB1_2_0_0
+#include CPF_VERSIONED_INCLUDE(dvpLibB1Ver, libB1.h)
 
 #include <iostream>
 
-namespace dvpLibB1
+
+CPF_VERSIONED_NAMESPACE(dvpLibB1Ver)
 {
 
-	void b1UseValueType(dvpLibC::ValueType value)
+	void b1UseValueType(dvpLibC_2_0_0::ValueType value)
 	{
 		std::cout << "Called dpvLibB1::b1UseValueType() with argument " << value.foo << value.bar << "\n";
 	}
 
-	dvpLibC::ValueType b1ReturnValueType()
+	dvpLibC_2_0_0::ValueType b1ReturnValueType()
 	{
-		return dvpLibC::ValueType{ 3, 4 };
+		return dvpLibC_2_0_0::ValueType{ 3, 4 };
 	}
 
-	void b1UseComplexType(dvpLibC::ComplexType* value)
+	void b1UseComplexType(dvpLibC_2_0_0::ComplexType* value)
 	{
 		std::cout << "Called dpvLibB2::b2UseComplexType() with argument " << value->getFoo() << "\n";
 	}
 
-	std::unique_ptr<dvpLibC::ComplexType> globalComplexType = nullptr;
+	std::unique_ptr<dvpLibC_2_0_0::ComplexType> globalComplexType = nullptr;
 
-	dvpLibC::ComplexType* b1ReturnComplexType()
+	dvpLibC_2_0_0::ComplexType* b1ReturnComplexType()
 	{
 		if (!globalComplexType)
 		{
-			globalComplexType = std::make_unique<dvpLibC::ComplexType>();
+			globalComplexType = std::make_unique<dvpLibC_2_0_0::ComplexType>();
 		}
 		return globalComplexType.get();
 	}
 
-	void b1SetComplexType(std::unique_ptr<dvpLibC::ComplexType> value)
+	void b1SetComplexType(std::unique_ptr<dvpLibC_2_0_0::ComplexType> value)
 	{
 		globalComplexType = std::move(value);
 	}
 
-	std::unique_ptr<dvpLibC::ComplexType> b1CreateComplexType()
+	std::unique_ptr<dvpLibC_2_0_0::ComplexType> b1CreateComplexType()
 	{
-		return std::make_unique<dvpLibC::ComplexType>();
+		return std::make_unique<dvpLibC_2_0_0::ComplexType>();
 	}
 
 }
