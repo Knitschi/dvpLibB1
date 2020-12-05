@@ -18,13 +18,15 @@ set( PACKAGE_PRODUCTION_FILES
 	libB1.cpp
 )
 
+cpfGetUnversionedPackageName(isVersionedName unversionedName versionPostfix ${PROJECT_NAME})
+
 ############################################## Add Package #################################
 cpfAddCppPackage( 
 	TYPE					LIB
 	OWNER 					Knitschi
 	BRIEF_DESCRIPTION		${briefDescription}
 	LONG_DESCRIPTION		${longDescription}
-	PACKAGE_NAMESPACE		${PROJECT_NAME}
+	PACKAGE_NAMESPACE		${unversionedName}
 	PUBLIC_HEADER			${PACKAGE_PUBLIC_HEADER}
 	PRODUCTION_FILES		${PACKAGE_PRODUCTION_FILES}
 	LINKED_LIBRARIES		dvpLibC_2_0_0
