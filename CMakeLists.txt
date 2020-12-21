@@ -28,7 +28,9 @@ cpfAddCppPackage(
 	PACKAGE_NAMESPACE		${unversionedName}
 	PUBLIC_HEADER			${PACKAGE_PUBLIC_HEADER}
 	PRODUCTION_FILES		${PACKAGE_PRODUCTION_FILES}
-	LINKED_LIBRARIES		dvpLibC_2_4_0
+	LINKED_LIBRARIES		
+		PUBLIC				dvpLibC_2_4_0
+		PRIVATE				dvpLibD_1_1_0
 )
 
 cpfSetupInCodeVersionMechanism()
