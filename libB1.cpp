@@ -1,4 +1,4 @@
-#include "dvpLibB1VersionMacros.h"
+#include "dvpLibB1DependencyNames.h"
 #include CPF_VERSIONED_INCLUDE(dvpLibB1, libB1.h)
 
 #include <iostream>

@@ -1,5 +1,5 @@
 #pragma once
-#include "dvpLibB1VersionMacros.h"
+#include "dvpLibB1DependencyNames.h"
 
 #include <memory>
 
